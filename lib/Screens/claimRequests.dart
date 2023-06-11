@@ -7,10 +7,10 @@ class ClaimRequests extends StatefulWidget {
 
 class _ClaimRequestsState extends State<ClaimRequests> {
   List<Claim> _claimRequests = [
-    Claim('Claim 1', 'Description 1'),
-    Claim('Claim 2', 'Description 2'),
-    Claim('Claim 3', 'Description 3'),
-    Claim('Claim 4', 'Description 4'),
+    Claim('Claim 1', 'Description 1', 'User 1', '2023-06-10'),
+    Claim('Claim 2', 'Description 2', 'User 2', '2023-06-09'),
+    Claim('Claim 3', 'Description 3', 'User 3', '2023-06-08'),
+    Claim('Claim 4', 'Description 4', 'User 4', '2023-06-07'),
   ];
 
   @override
@@ -28,7 +28,8 @@ class _ClaimRequestsState extends State<ClaimRequests> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => TreatClaimScreen(claim: claim)),
+                  builder: (context) => TreatClaimScreen(claim: claim),
+                ),
               );
             },
             child: Padding(
@@ -54,6 +55,21 @@ class _ClaimRequestsState extends State<ClaimRequests> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 8),
+                      Text(
+                        'Date: ${claim.date}',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        'User: ${claim.user}',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -67,8 +83,10 @@ class _ClaimRequestsState extends State<ClaimRequests> {
 class Claim {
   final String name;
   final String description;
+  final String user;
+  final String date;
 
-  Claim(this.name, this.description);
+  Claim(this.name, this.description, this.user, this.date);
 }
 
 class TreatClaimScreen extends StatefulWidget {
@@ -104,25 +122,10 @@ class _TreatClaimScreenState extends State<TreatClaimScreen> {
           children: [
             Text(
               'Claim: ${widget.claim.name}',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16),
-            Text(
-              'Description:',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              widget.claim.description,
-              style: TextStyle(fontSize: 16),
-            ),
+            Text('Description: ${widget.claim.description}'),
             SizedBox(height: 16),
             TextFormField(
               onChanged: (value) {
@@ -132,26 +135,12 @@ class _TreatClaimScreenState extends State<TreatClaimScreen> {
               },
               decoration: InputDecoration(
                 labelText: 'Decision',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
               ),
             ),
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: _confirmTreatment,
-              style: ElevatedButton.styleFrom(
-                primary: Colors.green,
-                onPrimary: Colors.white,
-                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: Text(
-                'Confirm Treatment',
-                style: TextStyle(fontSize: 18),
-              ),
+              child: Text('Confirm Treatment'),
             ),
           ],
         ),

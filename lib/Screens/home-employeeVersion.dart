@@ -1,13 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:hackapp/Screens/auth.dart';
 import 'package:hackapp/Screens/claimsList.dart';
 import 'package:hackapp/Screens/leaves.dart';
+import 'package:hackapp/services/authService.dart';
+
+import '../main.dart';
 
 class HomeScreen extends StatelessWidget {
+  Future<void> _logout(BuildContext context) async {
+    await storage.delete(key: 'jwt');
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Screen'),
+        actions: [
+          Text("Logout"),
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () => _logout(context),
+          ),
+        ],
       ),
       body: Center(
         child: Column(

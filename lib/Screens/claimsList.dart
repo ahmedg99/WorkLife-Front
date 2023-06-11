@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackapp/Screens/sendClaim.dart';
 
-import '../models/claim.dart';
-
 class SentClaims extends StatefulWidget {
   @override
   _SentClaimsState createState() => _SentClaimsState();
@@ -15,8 +13,7 @@ class _SentClaimsState extends State<SentClaims> {
     Claim('Claim 3', true),
     Claim('Claim 4', false),
   ];
-
-  void _addClaim() {
+  _addClaim() {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => ClaimFormScreen()));
   }
@@ -71,4 +68,11 @@ class _SentClaimsState extends State<SentClaims> {
       ),
     );
   }
+}
+
+class Claim {
+  final String subject;
+  final bool isTreated;
+
+  Claim(this.subject, this.isTreated);
 }
