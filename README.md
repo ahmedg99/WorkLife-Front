@@ -1,16 +1,7 @@
-# hackapp
+# Worklife+ mobile application 
+## 📱 Front-End Repository for Our Hackathon Solution: Empowering Workforce for Better Work Conditions 🚀
+I'm excited to share with you the front-end repository of the mobile app that our team developed as a solution for the Hackathon Challenge: "Empowering Workforce for Better Work Conditions"! This repository houses the code that powers the user interface and functionality of our innovative mobile application.
+What makes this achievement even more remarkable is the fact that we built this app in just 24 hours! Yes, you read that right. Our dedicated team poured their skills, passion, and creativity into this project, working around the clock to deliver a robust and user-friendly mobile app that addresses the critical issues faced by the workforce.
+## Demo
+https://github.com/ahmedg99/WorkLife-Front/assets/80821066/0d245426-5496-402a-b9ff-c74d98515f39
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
